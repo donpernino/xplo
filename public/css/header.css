@@ -1,0 +1,28 @@
+/*** HEADER ***/
+
+header {
+    display: flex;
+    align-items: center;
+    height: 66px;
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.15);
+}
+
+.header-logo {
+    height: 32px;
+}
+
+.header-left {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 0 20px 0 100px;
+}
+
+.header-left-actions {
+    display: flex;
+}
+
+.header-right-btn {
+    width: 180px;
+    letter-spacing: 0.1rem;
+}

@@ -1,0 +1,53 @@
+/*** General ***/
+
+:root {
+    --green: #49d1a8;
+    --green-bg: #e3fbf4;
+    --orange: #be7129;
+    --red: #df5252;
+    --red-bg: #ffe2e2;
+    --dark-gray: #615244;
+    --light-gray: #afafaf;
+    --bg-gray: #f5f5f5;
+    --btn-height: 40px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body::after {
+    content: url('../images/maquettes/1440.jpg');
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+}
+
+body.show-maquette::after {
+    opacity: 0.5;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.full-h {
+    height: 100%;
+}

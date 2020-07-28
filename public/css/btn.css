@@ -1,0 +1,10 @@
+/*** Buttons ***/
+
+.btn {
+    border-radius: 0;
+}
+
+.btn.green {
+    background: var(--green);
+    color: white;
+}
