@@ -22,7 +22,7 @@ body {
 }
 
 body::after {
-    content: url('../images/maquettes/1440.jpg');
+    content: url('../maquettes/1440.jpg');
     position: absolute;
     top: 0;
     right: 0;
