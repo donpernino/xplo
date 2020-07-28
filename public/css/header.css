@@ -4,7 +4,7 @@ header {
     display: flex;
     align-items: center;
     height: 66px;
-    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-large);
 }
 
 .header-logo {
@@ -23,7 +23,122 @@ header {
     display: flex;
 }
 
-.header-right-btn {
+.header-dropdown .btn {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: var(--btn-height);
+    border: 1px solid var(--border-gray);
+    border-radius: var(--lg-radius);
+    background: none;
+    color: var(--green);
+    box-shadow: none;
+    font-size: var(--font-size-normal);
+}
+
+.header-dropdown .btn svg {
+    margin-left: 5px;
+    height: 14px;
+    width: 20px;
+    fill: var(--green);
+    transform: rotate(90deg);
+}
+
+.header-dropdown.show .btn.dropdown-toggle {
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+.header-dropdown.show .btn svg {
+    fill: white;
+    transform: rotate(-90deg);
+}
+
+.header-dropdown-left {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 5px;
+}
+
+.header-dropdown-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-dropdown-notifs {
+    margin-left: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--red);
+    font-size: 10px;
+    color: white;
+}
+
+.header-dropdown .dropdown-menu {
+    padding: 0;
+    box-shadow: var(--shadow-large);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    top: 5px!important;
+    font-size: var(--font-size-normal);
+}
+
+.header-dropdown .dropdown-menu .dropdown-item {
+    padding: 6px 12px;
+}
+
+.header-dropdown .dropdown-menu .dropdown-item:active {
+    background: var(--green);
+}
+
+.header-search {
+    height: var(--btn-height);
+    width: 250px;
+    background: var(--bg-gray);
+    border-radius: var(--lg-radius);
+    overflow: hidden;
+    padding: 0 12px;
+    margin-left: 20px;
+}
+
+.header-search-btn {
+    background: none;
+    height: 100%;
+    border: 0;
+}
+
+.header-search-btn svg {
+    fill: var(--dark-gray);
+    height: 16px;
+    width: 16px;
+    margin-top: -3px;
+}
+
+.header-search-input {
+    height: 100%;
+    border: 0;
+    padding: 0 0 0 6px;
+}
+
+.header-history-btn {
     width: 180px;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.15rem;
+    font-size: 15px;
+}
+
+.header-history-btn svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.dropdown-toggle::after {
+    display: none;
 }
