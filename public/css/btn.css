@@ -2,9 +2,70 @@
 
 .btn {
     border-radius: 0;
+    transition: var(--transition);
 }
 
 .btn.green {
     background: var(--green);
     color: white;
+}
+
+.btn.green:hover {
+    background: var(--green-hover);
+    color: white;
+}
+
+.btn.green svg path {
+    fill: white;   
+}
+
+.btn.green.outline {
+    background: transparent;
+    border: 2px dashed var(--green);
+    color: var(--green);
+    border-radius: var(--sm-radius);
+}
+
+.btn.green.outline:hover {
+    background: var(--green);
+    border: 2px dashed var(--green);
+    color: white;
+}
+
+.btn.green.outline svg path {
+    fill: var(--green);
+}
+
+.btn.green.outline:hover svg path {
+    fill: white;
+}
+
+.btn.white {
+    background: white;
+    color: var(--dark-gray);
+}
+
+.btn.white:hover {
+    background: var(--white-hover);
+}
+
+.btn.white svg path {
+    fill: var(--dark-gray);   
+}
+
+.btn.shadow {
+    box-shadow: var(--shadow-large);
+}
+
+.btn.rounded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%!important;
+    padding: 0;
+}
+
+.btn.rounded svg {
+    height: 24px;
+    width: 24px;
 }

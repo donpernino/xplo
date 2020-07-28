@@ -1,4 +1,9 @@
 @import 'general.css';
 @import 'btn.css';
 @import 'header.css';
+@import 'tabs.css';
+@import 'content.css';
+@import 'map.css';
+@import 'slider.css';
+@import 'events.css';
 @import 'dev.css';

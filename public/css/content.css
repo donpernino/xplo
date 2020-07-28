@@ -1,0 +1,205 @@
+/*** Content ***/
+
+.content-section {
+    display: flex;
+    flex: 1;
+    padding: 0;
+    background: white;
+}
+
+.content-section:first-child {
+    border-right: 1px solid var(--bg-gray);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 65px 50px;
+}
+
+.content-header-wrapper {
+    display: flex;
+}
+
+.content-header {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.content-subtitle {
+    display: flex;
+    color: var(--orange);
+    font-size: 14px;
+}
+
+.content-share-btn {
+    height: 36px;
+    width: 36px;
+}
+
+.content-share-btn.btn.rounded svg {
+    height: 20px;
+    width: 20px;
+}
+
+.content-description {
+    margin: 15px 0 0;
+}
+
+.content-facts {
+    margin: 40px 0 25px;
+    padding: 25px;
+    background: var(--bg-gray);
+    border-radius: var(--sm-radius);
+}
+
+.content-facts-header {
+    display: flex;
+    align-items: center;
+    margin: 0 0 30px;
+}
+
+.content-facts-header-title {
+    flex: 1;
+}
+
+.content-add-fact-btn {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.05rem;
+}
+
+.content-add-fact-btn svg {
+    margin-right: 8px;
+    height: 12px;
+    width: 12px;
+}
+
+.content-facts-list {
+    padding: 0;
+}
+
+.content-facts-list-item {
+    display: flex;
+}
+
+.content-facts-list-item::before {
+    content: '•';
+    font-size: 13px;
+    margin: 5px 5px 0 0;
+}
+
+.content-facts-list-item:not(:last-child) {
+    margin: 0 0 25px;
+}
+
+.content-facts-list-item-text {
+    display: flex;
+    flex: 1;
+    margin: 0 50px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.content-facts-list-item-btns {
+    display: flex;
+}
+
+.content-facts-list-item-btn {
+    border: 0;
+    background: transparent;
+    width: 40px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.content-facts-list-item-btn:hover svg path {
+    fill: #342c24;
+}
+
+.content-actions-btns {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 380px;
+    height: 105px;
+    background: white;
+    box-shadow: var(--shadow-xlarge);
+    border-radius: 60px;
+}
+
+.content-actions-btn {
+    width: 70px;
+    height: 70px;
+}
+
+.content-actions-btn.btn.white:hover {
+    background: white;
+}
+
+.content-actions-btn .content-actions-btn-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    transition: var(--transition);
+}
+
+.content-actions-btn.like.btn.rounded svg {
+    height: 28px;
+    width: 28px;
+}
+
+.content-actions-btn.like svg path {
+    fill: var(--green);
+}
+
+.content-actions-btn.like .content-actions-btn-inner {
+    background: var(--green-bg);
+}
+
+.content-actions-btn.like:hover .content-actions-btn-inner {
+    background: var(--green-bg-hover);
+}
+
+.content-actions-btn.dislike svg path {
+    fill: var(--red);
+}
+
+.content-actions-btn.dislike .content-actions-btn-inner {
+    background: var(--red-bg);
+}
+
+.content-actions-btn.dislike:hover .content-actions-btn-inner {
+    background: var(--red-bg-hover);
+}
+
+.content-actions-btn-inner {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.content-actions-already-visited {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-weight: 600;
+}
+
+.content-actions-already-visited input {
+    margin-right: 8px;
+}
+
+.content-actions-already-visited label {
+    margin: 0;
+}
+
+.content-actions-already-visited input,
+.content-actions-already-visited label {
+    cursor: pointer;
+}

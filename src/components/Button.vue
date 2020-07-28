@@ -1,7 +1,7 @@
 <template>
     <button :id="id" :class="classes">
         <slot name="icon"></slot>
-        <span>{{ text }}</span>
+        <span v-if="text">{{ text }}</span>
     </button>
 </template>
 

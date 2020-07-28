@@ -1,0 +1,109 @@
+<template>
+  <div class="map-wrapper">
+    <img class="map-logo" src="../../assets/map/logo.png" alt="" />
+    <Button
+        v-bind:id="'js-header-history-btn'"
+        v-bind:classes="'btn rounded shadow white map-geolocalize-button'"
+        v-slot:icon
+    >
+        <GeolocalizeIcon />
+    </Button>
+    <l-map
+        :zoom="zoom"
+        :center="center"
+        :options="{zoomControl: false}"
+    >
+        <l-tile-layer
+            :url="url"
+            :attribution="attribution"
+        />
+        <l-control-zoom position="bottomright"></l-control-zoom>
+        <!-- Lieu icone -->
+        <l-marker
+            :lat-lng="locationPos"
+            :icon="pinIcon"
+        ></l-marker>
+        <!-- Position icone -->
+        <l-marker
+            :lat-lng="userPos"
+            :icon="posIcon"
+        ></l-marker>
+        <!-- Cercle autour de la position -->
+        <l-circle
+            :lat-lng="circle.center"
+            :radius="circle.radius"
+            :color="circle.color"
+            :weight="circle.weight"
+            :fill="circle.fill"
+            :dashArray="circle.dashArray"
+        >
+            <l-tooltip>Hello!</l-tooltip>
+        </l-circle>
+    </l-map>
+  </div>
+</template>
+
+<script>
+    import { latLng, icon } from 'leaflet';
+    import { LMap, LTileLayer, LControlZoom, LMarker, LCircle, LTooltip } from 'vue2-leaflet';
+    import Button from '../Button.vue';
+    import GeolocalizeIcon from '../../assets/icons/geolocalize-icon.svg'
+
+    export default {
+        name: "Map",
+        components: {
+            LMap,
+            LTileLayer,
+            LControlZoom,
+            LMarker,
+            LCircle,
+            LTooltip,
+            Button,
+            GeolocalizeIcon
+        },
+        data() {
+            let locationPos = [48.7024872, 2.1364273];
+            let userPos = [48.7015705,2.2054508];
+
+            return {
+                locationPos,
+                userPos,
+                zoom: 13,
+                center: latLng(locationPos),
+                url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+                showMap: true,
+                pinIcon: icon({
+                    iconUrl: 'map/pin.svg',
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 40]
+                }),
+                posIcon: icon({
+                    iconUrl: 'map/pos.png',
+                    iconSize: [36, 36],
+                    iconAnchor: [18, 36]
+                }),
+                circle: {
+                    center: userPos,
+                    radius: 8000,
+                    color: '#be7129',
+                    weight: 2,
+                    fill: false,
+                    dashArray: '16'
+                }
+            };
+        },
+        methods: {
+            zoomUpdate(zoom) {
+                this.currentZoom = zoom;
+            },
+            centerUpdate(center) {
+                this.currentCenter = center;
+            },
+            showLongText() {
+                this.showParagraph = !this.showParagraph;
+            },
+            innerClick() {
+            }
+        }
+    };
+</script>
