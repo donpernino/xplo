@@ -14,7 +14,7 @@
       </div>
       <Button
         v-bind:id="'js-header-history-btn'"
-        v-bind:classes="'btn green full-h header-history-btn uppercase bold'"
+        v-bind:classes="'btn gray full-h header-history-btn uppercase bold'"
         v-bind:text="'Historique'"
         v-slot:icon
       >

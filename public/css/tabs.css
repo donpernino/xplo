@@ -23,6 +23,10 @@
     font-weight: 600;
 }
 
+.nav-tabs li:first-child {
+    border-right: 1px solid var(--border-gray);
+}
+
 .nav-tabs li .nav-link {
     display: flex;
     align-items: center;

@@ -7,6 +7,7 @@
         :slidesToShow="3"
         :slidesToScroll="1"
         class="slider-wrapper"
+        ref="contentSlider"
     >
         <div
             v-for="image in images"

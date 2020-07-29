@@ -53,6 +53,19 @@
     fill: var(--dark-gray);   
 }
 
+.btn.gray {
+    background: var(--bg-medium-gray);
+    color: var(--dark-gray);
+}
+
+.btn.gray:hover {
+    background: var(--bg-medium-gray-hover);
+}
+
+.btn.gray svg path {
+    fill: var(--dark-gray);   
+}
+
 .btn.shadow {
     box-shadow: var(--shadow-large);
 }

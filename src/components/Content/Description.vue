@@ -1,13 +1,13 @@
 <template>
     <section
-      class="col-md-6 full-h content-section"
+      class="col-lg-6 content-section"
       v-bind:name="name"
     >
-      <div class="content">
+      <div class="content content-inner" ref="rightContentTop">
 
         <!-- Content header -->
         <div class="content-header-wrapper">
-          <div class="content-header">
+          <div class="content-header" ref="contentHeader">
             <!-- Content img -->
             <img :src="images[0].src" class="content-img">
             <!-- Content title -->
@@ -48,13 +48,17 @@
         </div>
 
         <!-- Content description -->
-        <p class="content-description">{{ description }}</p>
+        <p class="content-description" v-html="description" ref="contentDescription"></p>
 
         <!-- Content show facts (mobile) -->
         <button class="content-show-facts-btn bold" v-on:click="factsHidden = !factsHidden">Le saviez-vous ?</button>
 
         <!-- Content facts -->
-        <div class="content-facts" v-bind:class="{ hidden: factsHidden }">
+        <div
+          class="content-facts"
+          v-bind:class="{ hidden: factsHidden }"
+          ref="contentFacts"
+        >
 
           <!-- Content facts header -->
           <div class="content-facts-header">
@@ -160,14 +164,27 @@
     },
     methods: {
       changeInfos: function() {
-        this.$emit('changeInfos',
+        window.scrollTo(0,0)
+        this.$refs.rightContentTop.scrollTop = 0;
+
+        this.$refs.contentHeader.classList.add('hide-anim')
+        this.$refs.contentDescription.classList.add('hide-anim')
+        this.$refs.contentFacts.classList.add('hide-anim')
+
+        setTimeout( () => {
+          
+          this.$refs.contentHeader.classList.remove('hide-anim')
+          this.$refs.contentDescription.classList.remove('hide-anim')
+          this.$refs.contentFacts.classList.remove('hide-anim')
+
+          this.$emit('changeInfos',
           [
             {
               locationPos: [48.725740,2.125500],
               name: 'Château de Villiers-le-Bâcle',
               stars: '3.5',
               reviews: 11,
-              description: `Le château de Villiers-le-Bâcle est un château français situé dans la commune de Villiers-le-Bâcle, dans le département de l'Essonne et la région Île-de-France, à vingt-deux kilomètres au sud-ouest de Paris. Datant du XVIIIᵉ siècle, il est entouré d'un parc de 40 ha.`,
+              description: `Le château de Villiers-le-Bâcle est un château français situé dans la commune de Villiers-le-Bâcle, dans le département de l'Essonne et la région Île-de-France, à vingt-deux kilomètres au sud-ouest de Paris. Datant du XVIIIᵉ siècle, il est entouré d'un parc de 40 ha.<br>Nullam consectetur in ex quis facilisis. Etiam fringilla sem euismod eros ornare, quis consequat metus iaculis. Vestibulum vitae turpis quis mauris semper finibus. Ut ullamcorper justo in egestas euismod. Integer vel ipsum ut augue commodo ullamcorper nec sit amet diam. Mauris quam lectus, aliquam vitae lacinia a, viverra vel metus. Vestibulum libero quam, posuere eu arcu in, maximus sagittis nisi. Vivamus ullamcorper felis a nunc aliquam tristique eu in mi.`,
               facts: [
                 {
                   id: 1,
@@ -189,6 +206,7 @@
             }
           ]
         );
+        }, 400)
       },
     }
   }

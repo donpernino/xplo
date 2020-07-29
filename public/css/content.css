@@ -260,6 +260,14 @@
         padding: 35px 65px 50px;
     }
 
+    .content-inner {
+        position: absolute;
+        right: 0;
+        overflow-y: scroll;
+        top: 0;
+        height: 100%;
+    }
+
     .content-name {
         margin: 0 0 5px;
     }
@@ -338,6 +346,7 @@
         margin: 0 auto;
         padding: 0 20px;
         height: 105px;
+        flex: 0 0 105px;
         background: white;
         box-shadow: var(--shadow-xlarge);
         border-radius: 60px;

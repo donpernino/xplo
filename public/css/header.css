@@ -13,7 +13,7 @@ header {
     box-shadow: var(--shadow-large);
     padding: 0 20px;
     position: relative;
-    z-index: 401;
+    z-index: 1002;
 }
 
 .header-logo {
@@ -31,6 +31,14 @@ header {
 
 .header-left-actions {
     display: flex;
+}
+
+.header-dropdown {
+    order: 1;
+}
+
+.header-search {
+    order: 2;
 }
 
 .header-dropdown .btn {
@@ -138,14 +146,14 @@ header {
 
 .header-history-btn {
     letter-spacing: 0.15rem;
-    font-size: 15px;
+    font-size: 14px;
     margin: 20px -20px 0;
 }
 
 .header-history-btn svg {
     fill: white;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     margin-right: 8px;
 }
 
@@ -182,6 +190,15 @@ header {
     
     .header-left {
         padding: 0 20px 0 20px;
+    }
+
+    .header-dropdown {
+        order: 2;
+    }
+    
+    .header-search {
+        order: 1;
+        margin: 0 20px 0 0;
     }
 
     .header-dropdown .btn {

@@ -12,6 +12,8 @@
     --dark-gray: #615244;
     --light-gray: #afafaf;
     --border-gray: #e8e8e8;
+    --bg-medium-gray-hover: #e1e1e1;
+    --bg-medium-gray: #ebebeb;
     --bg-gray: #f5f5f5;
     --white-hover: #f2f2f2;
     --btn-height: 40px;
@@ -30,7 +32,7 @@ body {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--dark-gray);
 }
 
@@ -109,6 +111,12 @@ input::placeholder {
     transition: var(--transition);
 }
 
+.hide-anim {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+
 @media only screen and (max-width: 640px) {
 /*     body::after {
         content: url('../maquettes/375.jpg');
@@ -117,14 +125,14 @@ input::placeholder {
 
 @media only screen and (min-width: 640px) {
     h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     h2 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     p {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
