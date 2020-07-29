@@ -117,7 +117,11 @@ input::placeholder {
     transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 }
 
-@media only screen and (max-width: 640px) {
+.container-inner {
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 639px) {
 /*     body::after {
         content: url('../maquettes/375.jpg');
     } */
@@ -134,5 +138,11 @@ input::placeholder {
 
     p {
         font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .container-inner {
+        flex-direction: row;
     }
 }

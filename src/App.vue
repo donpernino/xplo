@@ -6,7 +6,7 @@
       v-bind:userNotifications="userNotifications"
     />
     <main class="container-fluid">
-      <div class="row">
+      <div class="row container-inner">
         <Tabs
           v-bind:locationPos="locationPos"
           v-bind:userPos="userPos"

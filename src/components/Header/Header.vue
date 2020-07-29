@@ -1,9 +1,9 @@
 <template>
   <header>
-    <b-navbar toggleable="sm">
+    <b-navbar toggleable="lg">
       <div class="header-left">
           <img src="../../assets/logo.png" alt="Xplo.fr" class="header-logo">
-          <div class="header-left-actions">
+          <div id="js-header-left-actions" class="header-left-actions">
             <HeaderProfileDropdown
               v-bind:userPic="userPic"
               v-bind:userName="userName"
@@ -12,14 +12,16 @@
             <HeaderSearch />
         </div>
       </div>
-      <Button
-        v-bind:id="'js-header-history-btn'"
-        v-bind:classes="'btn gray full-h header-history-btn uppercase bold'"
-        v-bind:text="'Historique'"
-        v-slot:icon
-      >
-        <HistoryIcon />
-      </Button>
+      <div id="js-header-right" class="header-right full-h">
+        <Button
+          v-bind:id="'js-header-history-btn'"
+          v-bind:classes="'btn gray full-h header-history-btn uppercase bold'"
+          v-bind:text="'Historique'"
+          v-slot:icon
+        >
+          <HistoryIcon />
+        </Button>
+      </div>
       <!-- Navbar toggle button -->
       <b-navbar-toggle target="navbar-toggle-collapse">
         <template>
@@ -59,12 +61,23 @@
     },
     mounted: function() {
       const navbarMobile = document.getElementById('navbar-mobile');
+      const headerLeftActions = document.getElementById('js-header-left-actions');
+      const headerRight = document.getElementById('js-header-right');
       const headerSearch = document.getElementById('js-header-search');
       const headerHistoryBtn = document.getElementById('js-header-history-btn');
 
-      if (window.matchMedia("(max-width: 640px)").matches) {
-        navbarMobile.append(headerSearch);
-        navbarMobile.append(headerHistoryBtn);
+      const navAppendQuery = () => {
+        if (window.matchMedia("(max-width: 991px)").matches) {
+          navbarMobile.append(headerSearch);
+          navbarMobile.append(headerHistoryBtn);
+        } else {
+          headerLeftActions.prepend(headerSearch);
+          headerRight.append(headerHistoryBtn);
+        }
+      }
+
+      window.onresize = () => {
+        navAppendQuery()
       }
     }
   }
