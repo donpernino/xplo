@@ -79,6 +79,8 @@
       window.onresize = () => {
         navAppendQuery()
       }
+
+      navAppendQuery()
     }
   }
 </script>

@@ -1,13 +1,9 @@
 <template>
   <div>
     <VueSlickCarousel
-        :arrows="true"
-        :dots="false"
-        :infinite="false"
-        :slidesToShow="3"
-        :slidesToScroll="1"
-        class="slider-wrapper"
-        ref="contentSlider"
+      v-bind="sliderSettings"
+      class="slider-wrapper"
+      ref="contentSlider"
     >
         <div
             v-for="image in images"
@@ -31,8 +27,33 @@
  
   export default {
     name: 'Slider',
+    data: function() {
+      return {
+        sliderSettings: {
+          "arrows": true,
+          "dots": false,
+          "infinite": false,
+          "slidesToShow": 3,
+          "slidesToScroll": 1,
+          "responsive": [
+            {
+              "breakpoint": 640,
+              "settings": {
+                "slidesToShow": 3
+              }
+            },
+            {
+              "breakpoint": 420,
+              "settings": {
+                "slidesToShow": 2
+              }
+            }
+          ]
+        }
+      }
+    },
     props: {
-        images: Array
+      images: Array
     },
     components: { VueSlickCarousel },
   }
