@@ -91,30 +91,30 @@
         <!-- Content actions buttons -->
         <div class="content-actions-btns">
           <!-- Content like button -->
-          <Button
-              v-bind:id="'js-content-actions-btn-like'"
-              v-bind:classes="'btn rounded shadow white content-actions-btn like'"
-              v-slot:icon
+          <button
+            id="js-content-actions-btn-like"
+            class="btn rounded shadow white content-actions-btn like"
+            v-on:click="changeLocation()"
           >
             <div class="content-actions-btn-inner">
               <HeartIcon />
             </div>
-          </Button>
+          </button>
           <!-- Content already visited -->
           <div class="content-actions-already-visited">
             <input type="checkbox" id="content-actions-already-visited" name="content-actions-already-visited" value="already-visited">
             <label for="content-actions-already-visited">Déjà visité</label>
           </div>
           <!-- Content dislike button -->
-          <Button
-              v-bind:id="'js-content-actions-btn-like'"
-              v-bind:classes="'btn rounded shadow white content-actions-btn dislike'"
-              v-slot:icon
+          <button
+            id="js-content-actions-btn-dislike"
+            class="btn rounded shadow white content-actions-btn dislike"
+            v-on:click="changeLocation()"
           >
             <div class="content-actions-btn-inner">
               <CrossIcon />
             </div>
-          </Button>
+          </button>
         </div>
       </div>
     </section>
@@ -167,8 +167,13 @@
           {
               src: 'https://images.unsplash.com/photo-1539584222411-a76a40e9e861?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
           }
-        ]
+        ],
       }
     },
+    methods: {
+      changeLocation: function() {
+        console.log(this)
+      }
+    }
   }
 </script>

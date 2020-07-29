@@ -1,6 +1,9 @@
 <template>
     <div>
-      <Map />
+      <Map
+        v-bind:locationPos="locationPos"
+        v-bind:userPos="userPos"
+      />
       <Slider />
     </div>
 </template>
@@ -11,6 +14,10 @@
 
   export default {
     name: 'LeftTab',
+    props: {
+      locationPos: Array,
+      userPos: Array
+    },
     components: {
       Map,
       Slider

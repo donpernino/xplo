@@ -1,5 +1,8 @@
 <template>
-  <div class="map-wrapper">
+  <div class="map-wrapper"
+    v-bind:locationPos="locationPos"
+    v-bind:userPos="userPos"
+  >
     <img class="map-logo" src="../../assets/map/logo.png" alt="" />
     <Button
         v-bind:id="'js-header-history-btn'"
@@ -14,7 +17,7 @@
     </div>
     <l-map
         :zoom="zoom"
-        :center="center"
+        :center="latLngUserPos"
         :options="{zoomControl: false}"
         ref="map"
         @ready="doSomethingOnReady()"
@@ -36,7 +39,7 @@
         ></l-marker>
         <!-- Cercle autour de la position -->
         <l-circle
-            :lat-lng="circle.center"
+            :lat-lng="userPos"
             :radius="circle.radius"
             :color="circle.color"
             :weight="circle.weight"
@@ -55,6 +58,10 @@
 
     export default {
         name: "Map",
+        props: {
+            locationPos: Array,
+            userPos: Array
+        },
         components: {
             LMap,
             LTileLayer,
@@ -65,16 +72,11 @@
             GeolocalizeIcon
         },
         data() {
-            let locationPos = [48.7024872, 2.1364273];
-            let userPos = [48.7015705,2.2054508];
-
             return {
-                locationPos,
-                userPos,
                 zoom: 12,
-                center: latLng(userPos),
                 url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
                 showMap: true,
+                latLngUserPos: latLng(this.userPos),
                 pinIcon: icon({
                     iconUrl: 'map/pin.svg',
                     iconSize: [40, 40],
@@ -86,7 +88,6 @@
                     iconAnchor: [18, 36]
                 }),
                 circle: {
-                    center: userPos,
                     radius: 8000,
                     color: '#be7129',
                     weight: 2,
@@ -94,6 +95,9 @@
                     dashArray: '16'
                 }
             };
+        },
+        created() {
+            //const userPosition = latLng(this.userPos);
         },
         methods: {
             doSomethingOnReady() {

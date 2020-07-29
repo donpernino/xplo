@@ -2,7 +2,10 @@
     <section class="col-md-6 content-section">
       <b-tabs>
         <b-tab title="Permanent" active>
-          <LeftTab />
+          <LeftTab
+            v-bind:locationPos="locationPos"
+            v-bind:userPos="userPos"
+          />
         </b-tab>
         <b-tab title="Évènements">
           <RightTab />
@@ -17,6 +20,10 @@
 
   export default {
     name: 'Tabs',
+    props: {
+      locationPos: Array,
+      userPos: Array
+    },
     components: {
       LeftTab,
       RightTab
