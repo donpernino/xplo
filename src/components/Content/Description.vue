@@ -1,5 +1,8 @@
 <template>
-    <section class="col-md-6 full-h content-section">
+    <section
+      class="col-md-6 full-h content-section"
+      v-bind:name="name"
+    >
       <div class="content">
 
         <!-- Content header -->
@@ -94,7 +97,7 @@
           <button
             id="js-content-actions-btn-like"
             class="btn rounded shadow white content-actions-btn like"
-            v-on:click="changeLocation()"
+            v-on:click="changeInfos()"
           >
             <div class="content-actions-btn-inner">
               <HeartIcon />
@@ -109,7 +112,7 @@
           <button
             id="js-content-actions-btn-dislike"
             class="btn rounded shadow white content-actions-btn dislike"
-            v-on:click="changeLocation()"
+            v-on:click="changeInfos()"
           >
             <div class="content-actions-btn-inner">
               <CrossIcon />
@@ -142,38 +145,51 @@
       CrossIcon,
       StarRating
     },
+    props: {
+      name: String,
+      stars: String,
+      reviews: Number,
+      description: String,
+      facts: Array,
+      images: Array
+    },
     data: function() {
       return {
-        name: 'Château du Val Fleury',
-        stars: '4.5',
-        reviews: 44,
-        description: `Le Val Fleury est le centre d'exposition de la ville de Gif-sur-Yvettes. Il propose une programmation pluridisciplinaire d'enverge nationale avec 5 expositions par saison : patrimoine, art comtemporain, sciences, photographie et arts graphiques.`,
         factsHidden: true,
-        facts: [
-          {
-            id: 1,
-            fact: `Construit au XIXe siècle, le château est d'abord le lieu de résidence de différents notables locaux`
-          },
-          {
-            id: 2,
-            fact: `Le château est acquis en 1947 par le nouveau Commissariat à l'Energie Atomique (CEA) pour y loger du personnel`
-          },
-          {
-            id: 3,
-            fact: `La commune commence à transformer le château en espace culturel à partir de 2003`
-          }
-        ],
-        images: [
-          {
-              src: 'https://images.unsplash.com/photo-1539584222411-a76a40e9e861?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-          }
-        ],
       }
     },
     methods: {
-      changeLocation: function() {
-        console.log(this)
-      }
+      changeInfos: function() {
+        this.$emit('changeInfos',
+          [
+            {
+              locationPos: [48.725740,2.125500],
+              name: 'Château de Villiers-le-Bâcle',
+              stars: '3.5',
+              reviews: 11,
+              description: `Le château de Villiers-le-Bâcle est un château français situé dans la commune de Villiers-le-Bâcle, dans le département de l'Essonne et la région Île-de-France, à vingt-deux kilomètres au sud-ouest de Paris. Datant du XVIIIᵉ siècle, il est entouré d'un parc de 40 ha.`,
+              facts: [
+                {
+                  id: 1,
+                  fact: `Au milieu du xviie siècle, un hôtel particulier se trouvait à l'emplacement actuel du château : l'hôtel de Presles. Il appartenait à Françoise Lombard.`
+                },
+                {
+                  id: 2,
+                  fact: `Le propriétaire actuel du château est Yves Lecoq, dont il constitue la résidence principale.`
+                },
+              ],
+              images: [
+                {
+                  src: 'https://images.unsplash.com/photo-1551727032-0c2a01bf8b28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80'
+                },
+                {
+                  src: 'https://images.unsplash.com/photo-1505567745926-ba89000d255a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'
+                },
+              ]
+            }
+          ]
+        );
+      },
     }
   }
 </script>

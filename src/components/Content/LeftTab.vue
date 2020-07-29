@@ -4,7 +4,9 @@
         v-bind:locationPos="locationPos"
         v-bind:userPos="userPos"
       />
-      <Slider />
+      <Slider
+        v-bind:images="images"
+      />
     </div>
 </template>
 
@@ -16,7 +18,8 @@
     name: 'LeftTab',
     props: {
       locationPos: Array,
-      userPos: Array
+      userPos: Array,
+      images: Array,
     },
     components: {
       Map,

@@ -5,6 +5,7 @@
           <LeftTab
             v-bind:locationPos="locationPos"
             v-bind:userPos="userPos"
+            v-bind:images="images"
           />
         </b-tab>
         <b-tab title="Évènements">
@@ -22,7 +23,8 @@
     name: 'Tabs',
     props: {
       locationPos: Array,
-      userPos: Array
+      userPos: Array,
+      images: Array
     },
     components: {
       LeftTab,

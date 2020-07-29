@@ -19,8 +19,6 @@
         :zoom="zoom"
         :center="latLngUserPos"
         :options="{zoomControl: false}"
-        ref="map"
-        @ready="doSomethingOnReady()"
     >
         <l-tile-layer
             :url="url"
@@ -95,14 +93,6 @@
                     dashArray: '16'
                 }
             };
-        },
-        created() {
-            //const userPosition = latLng(this.userPos);
-        },
-        methods: {
-            doSomethingOnReady() {
-                this.map = this.$refs.map.mapObject
-            },
         }
     };
 </script>
