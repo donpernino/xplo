@@ -11,13 +11,11 @@
         <Description />
       </div>
     </main>
-    <Maquettes />
   </div>
 </template>
 
 <script>
   import Header from './components/Header/Header.vue'
-  import Maquettes from './components/Maquettes.vue'
   import Tabs from './components/Content/Tabs.vue'
   import Description from './components/Content/Description.vue'
 
@@ -25,7 +23,6 @@
     name: 'App',
     components: {
       Header,
-      Maquettes,
       Tabs,
       Description
     },

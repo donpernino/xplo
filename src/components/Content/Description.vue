@@ -1,16 +1,37 @@
 <template>
-    <section class="col-6 full-h content-section">
+    <section class="col-md-6 full-h content-section">
       <div class="content">
 
         <!-- Content header -->
         <div class="content-header-wrapper">
           <div class="content-header">
+            <!-- Content img -->
+            <img :src="images[0].src" class="content-img">
             <!-- Content title -->
-            <h1 class="content-name uppercase bold">{{ name }}</h1>
-            <!-- Content stars & reviews -->
-            <div class="content-subtitle medium">
-              <div class="content-stars">{{ stars }}</div>
-              <div class="content-reviews">{{ reviews }}</div>
+            <div class="content-header-inner">
+              <div class="content-title">
+                <!-- Content title -->
+                <h1 class="content-name uppercase bold">{{ name }}</h1>
+                <!-- Content stars & reviews -->
+                <div class="content-subtitle medium">
+                  <div class="content-stars">
+                    <star-rating
+                      :read-only="true"
+                      :rating="4.5"
+                      :increment="0.5"
+                      :active-color="'#be7129'"
+                      :inactive-color="'#ffffff'"
+                      :border-color="'#be7129'"
+                      :border-width="2"
+                      :star-size="16"
+                      :rounded-corners="true"
+                    />
+                  </div>
+                  <div class="content-reviews uppercase">
+                    {{ reviews }} avis
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Content share btn -->
@@ -26,8 +47,11 @@
         <!-- Content description -->
         <p class="content-description">{{ description }}</p>
 
+        <!-- Content show facts (mobile) -->
+        <button class="content-show-facts-btn bold" v-on:click="factsHidden = !factsHidden">Le saviez-vous ?</button>
+
         <!-- Content facts -->
-        <div class="content-facts">
+        <div class="content-facts" v-bind:class="{ hidden: factsHidden }">
 
           <!-- Content facts header -->
           <div class="content-facts-header">
@@ -97,6 +121,7 @@
 </template>
 
 <script>
+  import StarRating from 'vue-star-rating'
   import Button from '../Button'
   import ShareIcon from '../../assets/icons/share-icon.svg'
   import PlusIcon from '../../assets/icons/plus-icon.svg'
@@ -114,7 +139,8 @@
       LikeIcon,
       DislikeIcon,
       HeartIcon,
-      CrossIcon
+      CrossIcon,
+      StarRating
     },
     data: function() {
       return {
@@ -122,6 +148,7 @@
         stars: '4.5',
         reviews: 44,
         description: `Le Val Fleury est le centre d'exposition de la ville de Gif-sur-Yvettes. Il propose une programmation pluridisciplinaire d'enverge nationale avec 5 expositions par saison : patrimoine, art comtemporain, sciences, photographie et arts graphiques.`,
+        factsHidden: true,
         facts: [
           {
             id: 1,
@@ -134,6 +161,11 @@
           {
             id: 3,
             fact: `La commune commence à transformer le château en espace culturel à partir de 2003`
+          }
+        ],
+        images: [
+          {
+              src: 'https://images.unsplash.com/photo-1539584222411-a76a40e9e861?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
           }
         ]
       }

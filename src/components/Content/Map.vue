@@ -8,10 +8,16 @@
     >
         <GeolocalizeIcon />
     </Button>
+    <!-- Indication zone de recherche -->
+    <div class="map-radius-indicator">
+        8 km
+    </div>
     <l-map
         :zoom="zoom"
         :center="center"
         :options="{zoomControl: false}"
+        ref="map"
+        @ready="doSomethingOnReady()"
     >
         <l-tile-layer
             :url="url"
@@ -36,16 +42,14 @@
             :weight="circle.weight"
             :fill="circle.fill"
             :dashArray="circle.dashArray"
-        >
-            <l-tooltip>Hello!</l-tooltip>
-        </l-circle>
+        ></l-circle>
     </l-map>
   </div>
 </template>
 
 <script>
     import { latLng, icon } from 'leaflet';
-    import { LMap, LTileLayer, LControlZoom, LMarker, LCircle, LTooltip } from 'vue2-leaflet';
+    import { LMap, LTileLayer, LControlZoom, LMarker, LCircle } from 'vue2-leaflet';
     import Button from '../Button.vue';
     import GeolocalizeIcon from '../../assets/icons/geolocalize-icon.svg'
 
@@ -57,7 +61,6 @@
             LControlZoom,
             LMarker,
             LCircle,
-            LTooltip,
             Button,
             GeolocalizeIcon
         },
@@ -68,8 +71,8 @@
             return {
                 locationPos,
                 userPos,
-                zoom: 13,
-                center: latLng(locationPos),
+                zoom: 12,
+                center: latLng(userPos),
                 url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
                 showMap: true,
                 pinIcon: icon({
@@ -93,17 +96,9 @@
             };
         },
         methods: {
-            zoomUpdate(zoom) {
-                this.currentZoom = zoom;
+            doSomethingOnReady() {
+                this.map = this.$refs.map.mapObject
             },
-            centerUpdate(center) {
-                this.currentCenter = center;
-            },
-            showLongText() {
-                this.showParagraph = !this.showParagraph;
-            },
-            innerClick() {
-            }
         }
     };
 </script>

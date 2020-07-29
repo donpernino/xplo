@@ -4,10 +4,6 @@
     width: 100%;
 }
 
-.tab-content {
-    height: calc(100vh - 110px);
-}
-
 .tab-content .tab-pane {
     height: 100%;
 }
@@ -58,4 +54,10 @@
 .nav-tabs .nav-link {
     background: white;
     border: 0;
+}
+
+@media only screen and (min-width: 640px) {
+    .tab-content {
+        height: calc(100vh - 110px);
+    }
 }

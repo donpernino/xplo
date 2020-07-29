@@ -1,5 +1,5 @@
 <template>
-    <section class="col-6 content-section">
+    <section class="col-md-6 content-section">
       <b-tabs>
         <b-tab title="Permanent" active>
           <LeftTab />

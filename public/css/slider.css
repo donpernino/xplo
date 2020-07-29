@@ -1,6 +1,7 @@
 /*** Slider ***/
 
 .slider-wrapper {
+    display: none!important;
     margin: 15px 0;
     padding: 0 10px 0;
 }
@@ -40,4 +41,10 @@
 
 .slick-arrow.slick-next {
     right: 20px;
+}
+
+@media only screen and (min-width: 640px) {
+    .slider-wrapper {
+        display: block!important;
+    }
 }
