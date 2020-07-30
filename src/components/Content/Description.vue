@@ -61,7 +61,10 @@
             v-bind:class="{ hidden: factsHidden }"
           >
             <!-- Content show facts (mobile) -->
-            <h2 class="content-facts-header-title bold" v-on:click="factsHidden = !factsHidden">Le saviez-vous ?</h2>
+            <h2 class="content-facts-header-title bold" v-on:click="factsHidden = !factsHidden">
+              <ArrowIcon />
+              <span>Le saviez-vous ?</span>
+            </h2>
             <Button
               v-bind:id="'js-content-add-fact-btn'"
               v-bind:classes="'btn green outline bold uppercase content-add-fact-btn'"
@@ -139,6 +142,7 @@
   import DislikeIcon from '../../assets/icons/dislike-icon.svg'
   import HeartIcon from '../../assets/icons/heart-icon.svg'
   import CrossIcon from '../../assets/icons/cross-icon.svg'
+  import ArrowIcon from '../../assets/icons/arrow-icon.svg'
 
   export default {
     name: 'Description',
@@ -150,6 +154,7 @@
       DislikeIcon,
       HeartIcon,
       CrossIcon,
+      ArrowIcon,
       StarRating
     },
     props: {

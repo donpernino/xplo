@@ -5,7 +5,7 @@
   >
     <img class="map-logo" src="../../assets/map/logo.png" alt="" />
     <Button
-        v-bind:id="'js-header-history-btn'"
+        v-bind:id="'js-map-geolocalize-btn'"
         v-bind:classes="'btn rounded shadow white map-geolocalize-button'"
         v-slot:icon
     >

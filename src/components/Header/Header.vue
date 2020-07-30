@@ -9,6 +9,7 @@
               v-bind:userName="userName"
               v-bind:userNotifications="userNotifications"
             />
+            <HeaderSearch />
             <Button
               v-bind:id="'js-header-history-btn'"
               v-bind:classes="'btn white-green full-h header-history-btn uppercase bold'"
@@ -17,7 +18,6 @@
             >
               <HistoryIcon />
             </Button>
-            <HeaderSearch />
         </div>
       </div>
       <!-- Navbar toggle button -->
@@ -60,7 +60,6 @@
     mounted: function() {
       const navbarMobile = document.getElementById('navbar-mobile');
       const headerLeftActions = document.getElementById('js-header-left-actions');
-      const headerRight = document.getElementById('js-header-right');
       const headerSearch = document.getElementById('js-header-search');
       const headerHistoryBtn = document.getElementById('js-header-history-btn');
 
@@ -70,7 +69,7 @@
           navbarMobile.append(headerHistoryBtn);
         } else {
           headerLeftActions.prepend(headerSearch);
-          headerRight.append(headerHistoryBtn);
+          headerLeftActions.append(headerHistoryBtn);
         }
       }
 

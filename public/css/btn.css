@@ -56,7 +56,6 @@
 .btn.white-green {
     background: var(--white);
     color: var(--green);
-    border-radius: var(--lg-radius);
     border: 1px solid var(--white-hover);
 }
 

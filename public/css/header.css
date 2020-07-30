@@ -218,6 +218,12 @@ header {
     }
 }
 
+@media only screen and (min-width: 992px) {
+    .header-history-btn {
+        border-radius: var(--lg-radius);
+    }
+}
+
 @media only screen and (min-width: 1200px) {
     .header-left {
         padding: 0 20px 0 100px;

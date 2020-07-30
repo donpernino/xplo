@@ -110,6 +110,10 @@
     margin: 0 0 15px;
 }
 
+.content-facts-header-title svg {
+    display: none;
+}
+
 .content-add-fact-btn {
     display: flex;
     align-items: center;
@@ -250,8 +254,30 @@
 }
 
 @media only screen and (max-width: 639px) {
+    .content-facts-header-title {
+        display: flex;
+        text-decoration: underline;
+    }
+
+    .content-facts-header-title svg {
+        display: flex;
+        transform: rotate(90deg);
+        height: 18px;
+        width: 18px;
+        margin-right: 8px;
+        transition: var(--transition);
+    }
+    
+    .content-facts-header-title svg path {
+        fill: var(--dark-gray);
+    }
+
     .content-facts-header.hidden {
         margin: 0;
+    }
+
+    .content-facts-header:not(.hidden) .content-facts-header-title svg {
+        transform: rotate(-90deg);
     }
 
     .content-facts-list.hidden,
