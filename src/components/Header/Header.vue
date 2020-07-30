@@ -9,18 +9,16 @@
               v-bind:userName="userName"
               v-bind:userNotifications="userNotifications"
             />
+            <Button
+              v-bind:id="'js-header-history-btn'"
+              v-bind:classes="'btn white-green full-h header-history-btn uppercase bold'"
+              v-bind:text="'Historique'"
+              v-slot:icon
+            >
+              <HistoryIcon />
+            </Button>
             <HeaderSearch />
         </div>
-      </div>
-      <div id="js-header-right" class="header-right full-h">
-        <Button
-          v-bind:id="'js-header-history-btn'"
-          v-bind:classes="'btn gray full-h header-history-btn uppercase bold'"
-          v-bind:text="'Historique'"
-          v-slot:icon
-        >
-          <HistoryIcon />
-        </Button>
       </div>
       <!-- Navbar toggle button -->
       <b-navbar-toggle target="navbar-toggle-collapse">

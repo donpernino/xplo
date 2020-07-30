@@ -53,17 +53,19 @@
     fill: var(--dark-gray);   
 }
 
-.btn.gray {
-    background: var(--bg-medium-gray);
-    color: var(--dark-gray);
+.btn.white-green {
+    background: var(--white);
+    color: var(--green);
+    border-radius: var(--lg-radius);
+    border: 1px solid var(--white-hover);
 }
 
-.btn.gray:hover {
-    background: var(--bg-medium-gray-hover);
+.btn.white-green:hover {
+    background: var(--bg-gray);
 }
 
-.btn.gray svg path {
-    fill: var(--dark-gray);   
+.btn.white-green svg path {
+    fill: var(--green);   
 }
 
 .btn.shadow {

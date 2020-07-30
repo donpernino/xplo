@@ -140,6 +140,7 @@ header {
     letter-spacing: 0.15rem;
     font-size: 14px;
     margin: 20px -20px 0;
+    height: var(--btn-height);
 }
 
 .header-history-btn svg {
@@ -194,9 +195,13 @@ header {
     }
 
     .header-dropdown {
-        order: 2;
+        order: 3;
     }
     
+    .header-history-btn {
+        order: 2;
+    }
+
     .header-search {
         order: 1;
         margin: 0 20px 0 0;
@@ -209,7 +214,7 @@ header {
 
     .header-history-btn {
         width: var(--header-history-width-desktop);
-        margin: 0;
+        margin: 0 20px 0 0;
     }
 }
 

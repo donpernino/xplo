@@ -50,24 +50,25 @@
         <!-- Content description -->
         <p class="content-description" v-html="description" ref="contentDescription"></p>
 
-        <!-- Content show facts (mobile) -->
-        <button class="content-show-facts-btn bold" v-on:click="factsHidden = !factsHidden">Le saviez-vous ?</button>
-
         <!-- Content facts -->
         <div
           class="content-facts"
-          v-bind:class="{ hidden: factsHidden }"
-          ref="contentFacts"
         >
 
           <!-- Content facts header -->
-          <div class="content-facts-header">
-            <h2 class="content-facts-header-title bold">Le saviez-vous ?</h2>
+          <div
+            class="content-facts-header"
+            v-bind:class="{ hidden: factsHidden }"
+          >
+            <!-- Content show facts (mobile) -->
+            <h2 class="content-facts-header-title bold" v-on:click="factsHidden = !factsHidden">Le saviez-vous ?</h2>
             <Button
               v-bind:id="'js-content-add-fact-btn'"
               v-bind:classes="'btn green outline bold uppercase content-add-fact-btn'"
               v-bind:text="'Ajouter une anecdote'"
               v-slot:icon
+              v-bind:class="{ hidden: factsHidden }"
+              ref="contentFacts"
             >
               <PlusIcon />
             </Button>
@@ -76,6 +77,8 @@
           <!-- Content facts list -->
           <ul
             class="content-facts-list"
+            v-bind:class="{ hidden: factsHidden }"
+            ref="contentFacts"
           >
             <li
               v-for="fact in facts"

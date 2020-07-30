@@ -48,9 +48,7 @@
         name: 'Château du Val Fleury',
         stars: '4.5',
         reviews: 44,
-        description: `Le Val Fleury est le centre d'exposition de la ville de Gif-sur-Yvettes. Il propose une programmation pluridisciplinaire d'enverge nationale avec 5 expositions par saison : patrimoine, art comtemporain, sciences, photographie et arts graphiques. La programmation a pour ambition d’interroger et d’interpeller les visiteurs sur des sujets et des techniques diversifiés : patrimoine, photographie, sciences, art contemporain et design…<br><br>
-        Spiritualités d'Éthiopie<br>
-        Du 8 au 27 septembre 2020`,
+        description: `Le Val Fleury est le centre d'exposition de la ville de Gif-sur-Yvettes. Il propose une programmation pluridisciplinaire d'enverge nationale avec 5 expositions par saison : patrimoine, art comtemporain, sciences, photographie et arts graphiques. La programmation a pour ambition d’interroger et d’interpeller les visiteurs sur des sujets et des techniques diversifiés : patrimoine, photographie, sciences, art contemporain et design...`,
         facts: [
           {
             id: 1,
